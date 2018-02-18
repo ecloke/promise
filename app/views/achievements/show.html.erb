@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @achievement.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @achievement.description %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @achievement.source %>
+</p>
+
+<p>
+  <strong>Timeline:</strong>
+  <%= @achievement.timeline %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @achievement.amount %>
+</p>
+
+<p>
+  <strong>Party:</strong>
+  <%= @achievement.party %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @achievement.location %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @achievement.status %>
+</p>
+
+<%= link_to 'Edit', edit_achievement_path(@achievement) %> |
+<%= link_to 'Back', achievements_path %>

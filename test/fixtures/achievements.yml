@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  source: MyString
+  timeline: 2018-02-18 19:22:57
+  amount: 1
+  party: MyString
+  location: MyString
+  status: MyString
+
+two:
+  title: MyString
+  description: MyString
+  source: MyString
+  timeline: 2018-02-18 19:22:57
+  amount: 1
+  party: MyString
+  location: MyString
+  status: MyString
