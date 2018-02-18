@@ -1,6 +1,6 @@
 class AchievementsController < ApplicationController
   before_action :set_achievement, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /achievements
   # GET /achievements.json
   def index
@@ -14,7 +14,7 @@ class AchievementsController < ApplicationController
 
   # GET /achievements/new
   def new
-    @achievement = Achievement.new
+    @achievement = current_user.achievements.build
   end
 
   # GET /achievements/1/edit
@@ -24,7 +24,7 @@ class AchievementsController < ApplicationController
   # POST /achievements
   # POST /achievements.json
   def create
-    @achievement = Achievement.new(achievement_params)
+    @achievement = current_user.achievements.build(achievement_params)
 
     respond_to do |format|
       if @achievement.save
@@ -69,6 +69,6 @@ class AchievementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def achievement_params
-      params.require(:achievement).permit(:title, :description, :source, :timeline, :amount, :party, :location, :status)
+      params.require(:achievement).permit(:title, :description, :source, :timeline, :amount, :party, :location, :status, :approved)
     end
 end

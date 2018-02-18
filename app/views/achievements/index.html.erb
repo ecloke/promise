@@ -1,25 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="large-12 small-12 columns"> 
+    <p id="notice"><%= notice %></p>
 
-<h1>Achievements</h1>
+    <h1>Achievements</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Source</th>
-      <th>Timeline</th>
-      <th>Amount</th>
-      <th>Party</th>
-      <th>Location</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Source</th>
+                <th>Timeline</th>
+                <th>Amount</th>
+                <th>Party</th>
+                <th>Location</th>
+                <th>Status</th>
+                <th colspan="3"></th>
+            </tr>
+        </thead>
 
-  <tbody>
+    <tbody>
     <% @achievements.each do |achievement| %>
-      <tr>
+    <tr>
         <td><%= achievement.title %></td>
         <td><%= achievement.description %></td>
         <td><%= achievement.source %></td>
@@ -29,13 +30,12 @@
         <td><%= achievement.location %></td>
         <td><%= achievement.status %></td>
         <td><%= link_to 'Show', achievement %></td>
-        <td><%= link_to 'Edit', edit_achievement_path(achievement) %></td>
-        <td><%= link_to 'Destroy', achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <% if achievement.user == current_user %>
+            <td><%= link_to 'Edit', edit_achievement_path(achievement) %></td>
+            <td><%= link_to 'Destroy', achievement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+    </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Achievement', new_achievement_path %>
+    </tbody>
+    </table>
+</div>

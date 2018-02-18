@@ -9,6 +9,8 @@ class CreateAchievements < ActiveRecord::Migration[5.1]
       t.string :party
       t.string :location
       t.string :status
+      t.integer :user_id
+      t.boolean :approved, default: false
 
       t.timestamps
     end
