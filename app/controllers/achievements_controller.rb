@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class AchievementsController < ApplicationController
   before_action :set_achievement, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
@@ -24,10 +26,14 @@ class AchievementsController < ApplicationController
   # POST /achievements
   # POST /achievements.json
   def create
+    image = Nokogiri::HTML(open(params[:achievement][:source]))
+    url = image.css("meta[property='og:image']").first.attributes["content"].value
     @achievement = current_user.achievements.build(achievement_params)
+    @achievement.update(photo: url)
 
     respond_to do |format|
       if @achievement.save
+
         format.html { redirect_to @achievement, notice: 'Achievement was successfully created.' }
         format.json { render :show, status: :created, location: @achievement }
       else
@@ -69,6 +75,6 @@ class AchievementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def achievement_params
-      params.require(:achievement).permit(:title, :description, :source, :timeline, :amount, :party, :location, :status, :approved)
+      params.require(:achievement).permit(:title, :description, :source, :timeline, :amount, :party, :location, :status, :approved, :photo)
     end
 end

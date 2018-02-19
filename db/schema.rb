@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20180218113643) do
     t.string "location"
     t.string "status"
     t.integer "user_id"
+    t.string "photo"
     t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

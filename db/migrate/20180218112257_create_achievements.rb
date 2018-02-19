@@ -10,6 +10,7 @@ class CreateAchievements < ActiveRecord::Migration[5.1]
       t.string :location
       t.string :status
       t.integer :user_id
+      t.string :photo
       t.boolean :approved, default: false
 
       t.timestamps
