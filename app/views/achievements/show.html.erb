@@ -1,48 +1,53 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Photo</strong>
-  <%= image_tag (@achievement.photo) %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @achievement.title %>
-</p>
+<div class="large-12 small-12 columns">
+    <div class="large-10 large-offset-1 small-12 columns">
+        <p>
+          <strong>Photo</strong>
+          <%= image_tag (@achievement.photo) %>
+        </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @achievement.description %>
-</p>
+        <p>
+          <strong>Title:</strong>
+          <%= @achievement.title %>
+        </p>
 
-<p>
-  <strong>Source:</strong>
-  <%= @achievement.source %>
-</p>
+        <p>
+          <strong>Description:</strong>
+          <%= simple_format(@achievement.description) %>
+        </p>
 
-<p>
-  <strong>Timeline:</strong>
-  <%= @achievement.timeline %>
-</p>
+        <p>
+          <strong>Source:</strong>
+            <%= link_to @achievement.source, @achievement.source, target: "_blank"  %>
+        </p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @achievement.amount %>
-</p>
+        <p>
+          <strong>Timeline:</strong>
+          <%= @achievement.timeline %>
+        </p>
 
-<p>
-  <strong>Party:</strong>
-  <%= @achievement.party %>
-</p>
+        <p>
+          <strong>Amount:</strong>
+          <%= @achievement.amount %>
+        </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @achievement.location %>
-</p>
+        <p>
+          <strong>Party:</strong>
+          <%= @achievement.party %>
+        </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @achievement.status %>
-</p>
+        <p>
+          <strong>Location:</strong>
+          <%= @achievement.location %>
+        </p>
+
+        <p>
+          <strong>Status:</strong>
+          <%= @achievement.status %>
+        </p>
+    </div>
+</div>
 
 <%= link_to 'Edit', edit_achievement_path(@achievement) %> |
 <%= link_to 'Back', achievements_path %>

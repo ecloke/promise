@@ -7,6 +7,8 @@ class AchievementsController < ApplicationController
   # GET /achievements.json
   def index
     @achievements = Achievement.all
+    @bn_promises = @achievements.where(party: 'Barisan National')
+    @ph_promises = @achievements.where(party: 'Pakatan Harapan')
   end
 
   # GET /achievements/1

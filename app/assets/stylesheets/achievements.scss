@@ -1,3 +1,37 @@
 // Place all the styles related to the achievements controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.home_bg {
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), asset-url("malaysia.jpg");
+    padding: 150px 0px;
+    background-position: 50% 30%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.promises {
+	padding-top: 50px;
+
+	.columns {
+		.promise_list {
+			margin-bottom: 20px;
+			.columns {
+				.top_padding {
+					padding-top: 30px !important;
+				}
+				
+				.author {
+					font-size: 0.7rem;
+					color: #696969;
+					margin-bottom: 10px;
+				}
+
+				.details {
+					font-size: 0.8rem;
+				}
+			}
+		}
+	}
+}

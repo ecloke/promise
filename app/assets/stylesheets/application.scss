@@ -23,7 +23,7 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', Arial, sans-serif;
+  font-family: 'Raleway', Arial, sans-serif;
   font-weight: bold;
 }
 
@@ -54,4 +54,18 @@ h6 {font-size:1em;font-weight:bold;}
 	display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.margin0 {
+	margin: 0px;
+}
+
+.button {
+	a {
+		color: #fff !important;
+	}
+}
+
+p {
+	margin-bottom: 5px;
 }

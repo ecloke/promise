@@ -4,28 +4,37 @@
    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <title>Save To Shop</title>
+    <title>Malaysia Unite</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
   </head>
 
-  <body>
-  <p class="alert"><%= alert %></p>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><%= link_to "Malaysian Unite", root_path %></h1>
+        </li>
+      </ul>
 
-    <% if user_signed_in? %>
-        <ul>
-            <li><%= link_to 'New Achievement', new_achievement_path %></li>
-            <li><%= link_to 'Account', edit_user_registration_path %></li>
-            <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
-        </ul>
-    <% else %>
-        <ul>
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <% if user_signed_in? %>
+            <li class="active"><%= link_to 'Create New Promises', new_achievement_path %></li>
+            <li><%= link_to 'My Account', edit_user_registration_path %></li>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+          <% else %>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+          <% end %>
         </ul>
-    <% end %>
+      </section>
+    </nav>
+  <p class="alert margin0"><%= alert %></p>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
