@@ -1,0 +1,30 @@
+<div class='large-12 small-12 columns no_padding'>
+    <div class='large-8 large-offset-2 small-12 columns'>
+        <h2>List of Barisan National Promises</h2>
+        <% @bn_promises.each do |achievement| %>
+            <div class="large-12 small-12 columns no_padding promise_list">
+                <div class="large-6 small-12 columns">
+                    <%= image_tag (achievement.photo) %>
+                </div>
+
+                <div class="large-6 small-12 columns">
+                    <h3 style="margin-bottom: 5px;"><%= achievement.title %></h3>
+                    <p class="author">Submitted <%= time_ago_in_words(achievement.created_at) %> ago by <%= achievement.user.username %></p>
+                    <p><%= truncate(achievement.description, length: 200) %></p>
+                    <p class="details"><b>Source:</b> <%= link_to achievement.source, achievement.source, target: "_blank", style: "color: lightblue;" %></p>
+                    <p class="details"><%= link_to 'View more details', achievement %></p>
+                    <% if current_user %>
+                        <%= link_to like_achievement_path(achievement), method: :put do %>
+                            <span><div class="button success">Upvote <%= achievement.get_upvotes.size  %></div></span>
+                        <% end %>
+
+                        <%= link_to dislike_achievement_path(achievement), method: :put do %>
+                            <span><div class="button alert">Downvote <%= achievement.get_downvotes.size  %></div></span>
+                        <% end %>
+
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

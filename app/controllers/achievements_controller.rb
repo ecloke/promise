@@ -3,30 +3,36 @@ require 'open-uri'
 class AchievementsController < ApplicationController
   before_action :set_achievement, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-  # GET /achievements
-  # GET /achievements.json
+
   def index
     @achievements = Achievement.all
     @bn_promises = @achievements.where(party: 'Barisan National')
     @ph_promises = @achievements.where(party: 'Pakatan Harapan')
   end
 
-  # GET /achievements/1
-  # GET /achievements/1.json
   def show
   end
 
-  # GET /achievements/new
   def new
     @achievement = current_user.achievements.build
   end
 
-  # GET /achievements/1/edit
   def edit
   end
 
-  # POST /achievements
-  # POST /achievements.json
+  def bn_promises
+    @bn_promises = Achievement.where(party: 'Barisan National')
+  end
+
+  def ph_promises
+    @ph_promises = Achievement.where(party: 'Pakatan Harapan')
+  end
+
+  def my_activity
+    @my_post = current_user.achievements.all
+    @achievements = Achievement.all
+  end
+
   def create
     image = Nokogiri::HTML(open(params[:achievement][:source]))
     url = image.css("meta[property='og:image']").first.attributes["content"].value
@@ -45,8 +51,6 @@ class AchievementsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /achievements/1
-  # PATCH/PUT /achievements/1.json
   def update
     respond_to do |format|
       if @achievement.update(achievement_params)
@@ -59,14 +63,24 @@ class AchievementsController < ApplicationController
     end
   end
 
-  # DELETE /achievements/1
-  # DELETE /achievements/1.json
   def destroy
     @achievement.destroy
     respond_to do |format|
       format.html { redirect_to achievements_url, notice: 'Achievement was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote 
+    @achievement = Achievement.find(params[:id])
+    @achievement.upvote_by current_user
+    redirect_back fallback_location: root_path
+  end
+
+  def downvote
+    @achievement = Achievement.find(params[:id])
+    @achievement.downvote_by current_user
+    redirect_back fallback_location: root_path
   end
 
   private

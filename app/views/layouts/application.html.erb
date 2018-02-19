@@ -4,7 +4,7 @@
    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <title>Malaysia Unite</title>
+    <title>Jangan Lupa La</title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -16,7 +16,7 @@
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><%= link_to "Malaysian Unite", root_path %></h1>
+          <h1><%= link_to "Jangan Lupa La", root_path %></h1>
         </li>
       </ul>
 
@@ -25,7 +25,8 @@
         <ul class="right">
           <% if user_signed_in? %>
             <li class="active"><%= link_to 'Create New Promises', new_achievement_path %></li>
-            <li><%= link_to 'My Account', edit_user_registration_path %></li>
+            <li><%= link_to 'My Posts', my_activity_path %></li>
+            <li><%= link_to 'Edit Account', edit_user_registration_path %></li>
             <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
           <% else %>
             <li><%= link_to "Sign up", new_user_registration_path %></li>

@@ -1,0 +1,8 @@
+<%= form_for(comment) do %>
+	<div class="large-12 small-12 columns comment_block">
+		<% if comment.user == current_user %>
+			<div class="button alert" style="float:right;"><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+		<% end %>
+		<h5 class="margin0"><%= simple_format(comment.body) %> <span style='font-size: 0.7rem; color: #696969;'>Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= comment.user.username %></span></h5>
+	</div>	
+<% end %>

@@ -1,61 +1,54 @@
-<div class="large-12 small-12 columns">   
-    <div class="large-8 large-offset-2 small-12 columns"> 
-        <%= form_with(model: achievement, local: true) do |form| %>
-            <% if achievement.errors.any? %>
-                <div id="error_explanation">
-                    <h2><%= pluralize(achievement.errors.count, "error") %> prohibited this achievement from being saved:</h2>
 
-                    <ul>
-                        <% achievement.errors.full_messages.each do |message| %>
-                          <li><%= message %></li>
-                        <% end %>
-                    </ul>
-                </div>
-            <% end %>
+<%= form_with(model: achievement, local: true) do |form| %>
+    <% if achievement.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(achievement.errors.count, "error") %> prohibited this achievement from being saved:</h2>
 
-            <div class="field">
-                <%= form.label :title %>
-                <%= form.text_field :title, id: :achievement_title %>
-            </div>
+            <ul>
+                <% achievement.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
-            <div class="field">
-                <%= form.label :description %>
-                <%= form.text_area :description, id: :achievement_description, rows: 5 %>
-            </div>
-
-            <div class="field">
-                <%= form.label :source %>
-                <%= form.text_field :source, id: :achievement_source %>
-            </div>
-
-            <div class="field">
-                <%= form.label :timeline %>
-                <%= form.datetime_select :timeline, id: :achievement_timeline %>
-            </div>
-
-            <div class="field">
-                <%= form.label :amount %>
-                <%= form.number_field :amount, id: :achievement_amount %>
-            </div>
-
-            <div class="field">
-                <%= form.label :party %>
-                <%= form.select :party, ['Barisan National', 'Pakatan Harapan'] ,id: :achievement_party %>
-            </div>
-
-            <div class="field">
-                <%= form.label :location %>
-                <%= form.text_field :location, id: :achievement_location %>
-            </div>
-
-            <div class="field">
-                <%= form.label :status %>
-                <%= form.text_field :status, id: :achievement_status %>
-            </div>
-
-            <div class="actions">
-                <%= form.submit %>
-            </div>
-        <% end %>
+    <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title, id: :achievement_title %>
     </div>
-</div>
+
+    <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description, id: :achievement_description, rows: 5 %>
+    </div>
+
+    <div class="field">
+        <%= form.label :source %>
+        <%= form.text_field :source, id: :achievement_source %>
+    </div>
+
+    <div class="field">
+        <%= form.label :budget %>
+        <%= form.number_field :amount, id: :achievement_amount, placeholder: "0 if no budget" %>
+    </div>
+
+    <div class="field">
+        <%= form.label :coalition %>
+        <%= form.select :party, ['Barisan National', 'Pakatan Harapan'], id: :achievement_party %>
+    </div>
+
+    <div class="field">
+        <%= form.label :location %>
+        <%= form.select :location, ['Kuala Lumpur', 'Selangor', 'Penang', 'Perak', 'Johor', 'Others'], id: :achievement_location %>
+    </div>
+
+    <div class="field">
+        <%= form.label :status %>
+        <%= form.select :status, ['Pending', 'Completed'], id: :achievement_status %>
+    </div>
+
+    <div class="actions">
+        <%= form.submit "Create"%>
+    </div>
+<% end %>
+
