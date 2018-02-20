@@ -38,7 +38,9 @@
 	                </div>
 				<% end %>
 			</div>
+		<% end %>
 
+		<% if @not_approved_phpost.any? %>
 			<div class='large-12 small-12 columns no_padding top_padding'>
 				<h4>Not approved PH article</h4><br>
 				<% @not_approved_phpost.where(party: "Pakatan Harapan").each do |achievement| %>
