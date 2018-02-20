@@ -13,23 +13,18 @@
     <% end %>
 
     <div class="field">
-        <%= form.label :title %>
-        <%= form.text_field :title, id: :achievement_title %>
-    </div>
-
-    <div class="field">
-        <%= form.label :description %>
-        <%= form.text_area :description, id: :achievement_description, rows: 5 %>
-    </div>
-
-    <div class="field">
         <%= form.label :source %>
         <%= form.text_field :source, id: :achievement_source %>
     </div>
 
     <div class="field">
+        <%= form.label :year_article_published %>
+        <%= form.select :year, (Time.zone.now.year - 10)..(Time.zone.now.year + 1) %>
+    </div>
+
+    <div class="field">
         <%= form.label :budget %>
-        <%= form.number_field :amount, id: :achievement_amount, placeholder: "0 if no budget" %>
+        <%= form.number_field :amount, id: :achievement_amount, value: 0 %>
     </div>
 
     <div class="field">
@@ -39,7 +34,7 @@
 
     <div class="field">
         <%= form.label :location %>
-        <%= form.select :location, ['Kuala Lumpur', 'Selangor', 'Penang', 'Perak', 'Johor', 'Others'], id: :achievement_location %>
+        <%= form.select :location, ['Kuala Lumpur', 'Selangor', 'Penang', 'Perak', 'Johor', 'Sabah/Sarawak', 'Others'], id: :achievement_location %>
     </div>
 
     <div class="field">

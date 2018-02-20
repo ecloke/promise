@@ -4,7 +4,8 @@ class CreateAchievements < ActiveRecord::Migration[5.1]
       t.string :title
       t.string :description
       t.string :source
-      t.integer :amount
+      t.integer :year
+      t.integer :amount, default: 0
       t.string :party
       t.string :location
       t.string :status

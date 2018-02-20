@@ -1,9 +1,44 @@
-<div class="large-12 small-12 columns">   
-    <div class="large-8 large-offset-2 small-12 columns"> 	
+<div class="large-12 small-12 columns" style="padding-top: 50px;">   
+    <div class="large-10 large-offset-1 small-12 columns"> 	
 		<h1 class='text-center'>New Coalition Promises</h1>
 
-		<%= render 'form', achievement: @achievement %>
+		<div class="large-12 small-12 columns top_padding">
+			<div class="large-6 small-12 columns">
+				<%= render 'form', achievement: @achievement %>
+				<%= link_to 'Back', achievements_path %>
+			</div>
 
-		<%= link_to 'Back', achievements_path %>
+			<div class="large-6 small-12 columns">
+				<div class="large-12 small-12 columns no_padding">
+					<div class="large-10 large-offset-1 small-12 columns tnc">
+						<h3>Terms & Condition</h3>
+
+						<ul>
+							<li><p>All sources will be vetted by our management team before it is published to confirm its validity.</p></li>
+							<li><p>Please refrain from posting random things other than coalition promises, remember our goal is to build a better Malaysia</p></li>
+							<li><p>Please ensure that sources are credible and reliable</p></li>
+							<li><p>Please do not troll or flame. Do not intentionally post inflammatory message.</p></li>
+							<li><p>Please do not use profanities or vulgarities, sexual innuendos, sexist or discriminating comments of any nature. </p></li>
+							<li><p>The management team has the right to remove users.</p></li>
+							<li><p>Do not engage in activities prohibited by Malaysian law. </p></li>
+							<li><p>Please treat everyone with respect.</p></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
 	</div>
 </div>
+
+
+<style>
+	.tnc {
+		background-color: #f3f3f3;
+		padding: 20px;
+		box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+		height: 542px;
+		overflow-y: auto;
+	}
+</style>

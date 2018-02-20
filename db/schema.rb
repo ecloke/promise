@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219144700) do
+ActiveRecord::Schema.define(version: 20180220051526) do
 
   create_table "achievements", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.string "source"
-    t.integer "amount"
+    t.integer "year"
+    t.integer "amount", limit: 8, default: 0
     t.string "party"
     t.string "location"
     t.string "status"
