@@ -19,7 +19,7 @@
 
     <div class="field">
         <%= form.label :year_article_published %>
-        <%= form.select :year, (Time.zone.now.year - 10)..(Time.zone.now.year + 1) %>
+        <%= form.select :year, (Time.zone.now.year - 10)..(Time.zone.now.year) %>
     </div>
 
     <div class="field">
