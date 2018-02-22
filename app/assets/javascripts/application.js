@@ -18,3 +18,7 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(".menu-icon").click(function(){
+	$(".mobile_menu").toggle();
+});
