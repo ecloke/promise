@@ -95,13 +95,11 @@ class AchievementsController < ApplicationController
   def upvote 
     @achievement = Achievement.find(params[:id])
     @achievement.upvote_by current_user
-    redirect_back fallback_location: root_path
   end
 
   def downvote
     @achievement = Achievement.find(params[:id])
     @achievement.downvote_by current_user
-    redirect_back fallback_location: root_path
   end
 
   private

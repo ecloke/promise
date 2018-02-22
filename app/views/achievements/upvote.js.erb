@@ -1,0 +1,4 @@
+var upvote = $('span.upvote_count[data-id="<%= params[:id] %>"]');
+$(upvote).html(<%=@achievement.get_upvotes.size%>);
+var downvote = $('span.downvote_count[data-id="<%= params[:id] %>"]');
+$(downvote).html(<%=@achievement.get_downvotes.size%>);

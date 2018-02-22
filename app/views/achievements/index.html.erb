@@ -30,15 +30,15 @@
 
                                 <% if current_user %>
                                     <div class="large-12 small-12 columns no_padding block_engage">
-                                        <%= link_to like_achievement_path(achievement), method: :put do %>
+                                        <%= link_to like_achievement_path(achievement), method: :post, remote: true do %>
                                             <div class="large-6 small-6 columns no_padding" style='border-right: 1px solid #f3f3f3;'>
-                                                <i class="em em-smile"></i> <%= achievement.get_upvotes.size  %>
+                                                <i class="em em-smile"></i> <span class="upvote_count" data-id="<%= achievement.id %>"><%= achievement.get_upvotes.size  %></span>
                                             </div>
                                         <% end %>
 
-                                        <%= link_to dislike_achievement_path(achievement), method: :put do %>
+                                        <%= link_to dislike_achievement_path(achievement), method: :post, remote: true do %>
                                             <div class="large-6 small-6 columns no_padding">
-                                                <i class="em em-angry"></i> <%= achievement.get_downvotes.size  %>
+                                                <i class="em em-angry"></i> <span class="downvote_count" data-id="<%= achievement.id %>"><%= achievement.get_downvotes.size  %></span>
                                             </div>
                                         <% end %>
                                     </div>
@@ -80,15 +80,15 @@
                                 </div>
                                 <% if current_user %>
                                     <div class="large-12 small-12 columns no_padding block_engage">
-                                        <%= link_to like_achievement_path(achievement), method: :put do %>
+                                        <%= link_to like_achievement_path(achievement), method: :post, remote: true do %>
                                             <div class="large-6 small-6 columns no_padding" style='border-right: 1px solid #f3f3f3;'>
-                                                <i class="em em-smile"></i> <%= achievement.get_upvotes.size  %>
+                                                <i class="em em-smile"></i> <span class="upvote_count" data-id="<%= achievement.id %>"><%= achievement.get_upvotes.size %></span>
                                             </div>
                                         <% end %>
 
-                                        <%= link_to dislike_achievement_path(achievement), method: :put do %>
+                                        <%= link_to dislike_achievement_path(achievement), method: :post, remote: true do %>
                                             <div class="large-6 small-6 columns no_padding">
-                                                <i class="em em-angry"></i> <%= achievement.get_downvotes.size  %>
+                                                <i class="em em-angry"></i> <span class="downvote_count" data-id="<%= achievement.id %>"><%= achievement.get_downvotes.size  %></span>
                                             </div>
                                         <% end %>
                                     </div>

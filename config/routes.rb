@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :achievements do
   	member do
-  		put 'like', to: "achievements#upvote"
-  		put 'dislike', to: "achievements#downvote"
+  		post 'like', to: "achievements#upvote"
+  		post 'dislike', to: "achievements#downvote"
   	end
 
     resources :comments
