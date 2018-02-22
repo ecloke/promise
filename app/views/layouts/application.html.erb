@@ -23,7 +23,7 @@
         <li class="name">
           <h1><%= link_to "Jangan Lupa La", root_path %></h1>
         </li>
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        <li class="toggle-topbar menu-icon"><a><span>Menu</span></a></li>
       </ul>
 
       <section class="top-bar-section">
@@ -42,8 +42,28 @@
         </ul>
       </section>
     </nav>
+    <div class="mobile_menu" style="display: none;">
+       <% if user_signed_in? %>
+          <div class="mob_menu"><%= link_to 'Create New Promises', new_achievement_path %></div>
+          <% if current_user.email == "janganlupa@admin.my" %>
+            <div class="mob_menu"><%= link_to 'Admin Page', admin_path%></div>
+          <% end %>
+          <div class="mob_menu"><%= link_to 'My Posts', my_activity_path %></div>
+          <div class="mob_menu"><%= link_to 'Edit Account', edit_user_registration_path %></div>
+          <div class="mob_menu"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></div>
+        <% else %>
+          <div class="mob_menu"><%= link_to "Sign up", new_user_registration_path %></div>
+          <div class="mob_menu"><%= link_to "Log in", new_user_session_path %></div>
+        <% end %>
+    </div>
   <p class="alert margin0"><%= alert %></p>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>
 </html>
+
+<script>
+  $(".menu-icon").click(function(){
+    $(".mobile_menu").toggle();
+  });
+</script>

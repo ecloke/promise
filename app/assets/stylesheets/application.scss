@@ -38,6 +38,22 @@ h6 {font-size:1em;font-weight:bold;}
 	padding: 0px;
 }
 
+.mobile_menu {
+	position: absolute;
+	top: 45px;
+	right: 0;
+	background-color: #333;
+	z-index: 1;
+
+	.mob_menu {
+		padding: 10px;
+		a {
+			color: #fff;
+		}
+
+	}
+}
+
 .top_padding {
 	padding: 50px 0px !important;
 }
