@@ -13,10 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require foundation
+//= require turbolinks
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
-
-$(".menu-icon").click(function(){
-	$(".mobile_menu").toggle();
-});

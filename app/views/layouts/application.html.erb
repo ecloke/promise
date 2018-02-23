@@ -11,7 +11,7 @@
     <title>Jangan Lupa La</title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
@@ -42,20 +42,6 @@
         </ul>
       </section>
     </nav>
-    <div class="mobile_menu" style="display: none;">
-       <% if user_signed_in? %>
-          <div class="mob_menu"><%= link_to 'Create New Promises', new_achievement_path %></div>
-          <% if current_user.email == "janganlupa@admin.my" %>
-            <div class="mob_menu"><%= link_to 'Admin Page', admin_path%></div>
-          <% end %>
-          <div class="mob_menu"><%= link_to 'My Posts', my_activity_path %></div>
-          <div class="mob_menu"><%= link_to 'Edit Account', edit_user_registration_path %></div>
-          <div class="mob_menu"><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></div>
-        <% else %>
-          <div class="mob_menu"><%= link_to "Sign up", new_user_registration_path %></div>
-          <div class="mob_menu"><%= link_to "Log in", new_user_session_path %></div>
-        <% end %>
-    </div>
   <p class="alert margin0"><%= alert %></p>
     <%= yield %>
   </body>
