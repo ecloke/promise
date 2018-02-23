@@ -10,7 +10,7 @@
         <div class="large-10 large-offset-1 small-12 columns">
             <% if @bn_promises.any? %>
                 <div class='large-12 small-12 columns no_padding'>
-                    <h2>List of Barisan National Promises <div class="button success" style='float:right;'><%= link_to "view all BN promises", bn_promises_path %></div></h2>
+                    <h2>List of Barisan National Promises <div class="button success mob_btn" style='float:right;'><%= link_to "view all BN promises", bn_promises_path %></div></h2>
                     <% @bn_promises.each do |achievement| %>
 
                         <div class="large-3 small-12 columns block_card end">
@@ -65,7 +65,7 @@
 
             <% if @ph_promises.any? %>
                 <div class='large-12 small-12 columns no_padding top_padding'>
-                    <h2>List of Pakatan Harapan Promises <div class="button success" style='float:right;'><%= link_to "view all PH promises", ph_promises_path %></div></h2>
+                    <h2>List of Pakatan Harapan Promises <div class="button success mob_btn" style='float:right;'><%= link_to "view all PH promises", ph_promises_path %></div></h2>
                     <% @ph_promises.each do |achievement| %>
                         <div class="large-3 small-12 columns block_card end">
                             <div class="large-12 small-12 columns block_border no_padding">

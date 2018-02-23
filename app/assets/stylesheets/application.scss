@@ -207,3 +207,9 @@ p {
         -o-transition: all 0.1s ease-in;
 	}
 }
+
+@media screen and (max-width: 39.9375em) {
+	.mob_btn {
+		float: none !important;
+	}
+}
