@@ -17,3 +17,5 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+console.log('Testing application.js');
