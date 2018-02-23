@@ -44,13 +44,17 @@
                                     </div>
                                 <% else %>
                                     <div class="large-12 small-12 columns no_padding block_engage">
-                                        <div class="large-6 small-6 columns no_padding" style='border-right: 1px solid #f3f3f3;'>
-                                            <i class="em em-smile"></i> <%= achievement.get_upvotes.size  %>
-                                        </div>
+                                        <%= link_to new_user_session_path do%>
+                                            <div class="large-6 small-6 columns no_padding" style='border-right: 1px solid #f3f3f3;'>
+                                                <i class="em em-smile"></i> <%= achievement.get_upvotes.size  %>
+                                            </div>
+                                        <% end %>
 
-                                        <div class="large-6 small-6 columns no_padding">
-                                            <i class="em em-angry"></i> <%= achievement.get_downvotes.size  %>
-                                        </div>
+                                        <%= link_to new_user_session_pat do %>
+                                            <div class="large-6 small-6 columns no_padding">
+                                                <i class="em em-angry"></i> <%= achievement.get_downvotes.size  %>
+                                            </div>
+                                        <% end %>
                                     </div>
                                 <% end %>
                             </div>
@@ -94,13 +98,17 @@
                                     </div>
                                 <% else %>
                                     <div class="large-12 small-12 columns no_padding block_engage">
-                                        <div class="large-6 small-6 columns no_padding" style='border-right: 1px solid #f3f3f3;'>
-                                            <i class="em em-smile"></i> <%= achievement.get_upvotes.size  %>
-                                        </div>
+                                        <%= link_to new_user_session_path do%>
+                                            <div class="large-6 small-6 columns no_padding" style='border-right: 1px solid #f3f3f3;'>
+                                                <i class="em em-smile"></i> <%= achievement.get_upvotes.size  %>
+                                            </div>
+                                        <% end %>
 
-                                        <div class="large-6 small-6 columns no_padding">
-                                            <i class="em em-angry"></i> <%= achievement.get_downvotes.size  %>
-                                        </div>
+                                        <%= link_to new_user_session_path do %>
+                                            <div class="large-6 small-6 columns no_padding">
+                                                <i class="em em-angry"></i> <%= achievement.get_downvotes.size  %>
+                                            </div>
+                                        <% end %>
                                     </div>
                                 <% end %>
                             </div>
