@@ -33,17 +33,17 @@ class AchievementsController < ApplicationController
   end
 
   def bn_promises
-    @bn_pending = Achievement.where(party: 'Barisan National', status: "Pending", approved: true)
-    @bn_completed = Achievement.where(party: 'Barisan National', status: "Completed", approved: true)
+    @bn_pending = Achievement.where(party: 'Barisan National', status: "Pending", approved: true).order('year DESC')
+    @bn_completed = Achievement.where(party: 'Barisan National', status: "Completed", approved: true).order('year DESC')
   end
 
   def ph_promises
-    @ph_pending = Achievement.where(party: 'Pakatan Harapan', status: "Pending", approved: true)
-    @ph_completed = Achievement.where(party: 'Pakatan Harapan', status: "Completed", approved: true)
+    @ph_pending = Achievement.where(party: 'Pakatan Harapan', status: "Pending", approved: true).order('year DESC')
+    @ph_completed = Achievement.where(party: 'Pakatan Harapan', status: "Completed", approved: true).order('year DESC')
   end
 
   def opinions
-    @opinions = Achievement.where(party: "Opinion").all
+    @opinions = Achievement.where(party: "Opinion").all.order('year DESC')
   end
 
   def my_activity
