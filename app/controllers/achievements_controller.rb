@@ -6,9 +6,9 @@ class AchievementsController < ApplicationController
 
   def index
     @achievements = Achievement.all
-    @bn_promises = @achievements.where(party: 'Barisan National', approved: true).order('year DESC').limit(8)
-    @ph_promises = @achievements.where(party: 'Pakatan Harapan', approved: true).order('year DESC').limit(8)
-    @opinions = @achievements.where(party: 'Opinion', approved: true).order('year DESC').limit(8)
+    @bn_promises = @achievements.where(party: 'Barisan National', approved: true).order('id DESC').limit(8)
+    @ph_promises = @achievements.where(party: 'Pakatan Harapan', approved: true).order('id DESC').limit(8)
+    @opinions = @achievements.where(party: 'Opinion', approved: true).order('id DESC').limit(8)
   end
 
   def show
