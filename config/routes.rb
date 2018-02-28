@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/bn_promises' => "achievements#bn_promises"
   get '/ph_promises' => "achievements#ph_promises"
+  get '/opinions' => "achievements#opinions"
   get '/my_activity' => "achievements#my_activity"
   get '/admin' => "achievements#admin"
   root "achievements#index"

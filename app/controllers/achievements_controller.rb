@@ -8,6 +8,7 @@ class AchievementsController < ApplicationController
     @achievements = Achievement.all
     @bn_promises = @achievements.where(party: 'Barisan National', approved: true).order('year DESC').limit(8)
     @ph_promises = @achievements.where(party: 'Pakatan Harapan', approved: true).order('year DESC').limit(8)
+    @opinions = @achievements.where(party: 'Opinion', approved: true).order('year DESC').limit(8)
   end
 
   def show
@@ -24,6 +25,7 @@ class AchievementsController < ApplicationController
     if current_user.email == "janganlupa@admin.my"
       @not_approved_bnpost = Achievement.all.where(party: "Barisan National", approved: false)
       @not_approved_phpost = Achievement.all.where(party: "Pakatan Harapan",approved: false)
+      @not_approved_opinion = Achievement.all.where(party: "Opinion",approved: false)
       @approved_post = Achievement.all.where(approved: true)
     else
       redirect_to root_path
@@ -38,6 +40,10 @@ class AchievementsController < ApplicationController
   def ph_promises
     @ph_pending = Achievement.where(party: 'Pakatan Harapan', status: "Pending", approved: true)
     @ph_completed = Achievement.where(party: 'Pakatan Harapan', status: "Completed", approved: true)
+  end
+
+  def opinions
+    @opinions = Achievement.where(party: "Opinion").all
   end
 
   def my_activity
